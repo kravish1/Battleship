@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Battleship Game"/>
+    <meta name="author" content="Karthik Ravishanker"/>
+    <link rel="stylesheet" href="app.css"/>
+    <title>Battleship</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <span class="logo">Battleship</span>
+      </div>
+
+
+
+      <div class="left-pane">
+        <div class="dash">
+          <h1>Score Card</h1>
+          <h2> Your Guess Score: <span id="score"></span></h2>
+          <h2> Status: <span id="status"></span></h2>
+
+            <h3>Enter your Guess : </h3>
+            <input type="text" id="guess"/>
+            <button class="menu" id="fire">Fire</button>
+            <button class="menu" id="reset">Reset</button>
+
+        </div>
+      </div>
+
+      <div class="right-pane">
+        <div class="mark-top">
+          <span class="number">0</span>
+          <span class="number">1</span>
+          <span class="number">2</span>
+          <span class="number">3</span>
+          <span class="number">4</span>
+        </div>
+
+
+        <div class="mark-left">
+          <span class="alphabet">A</span>
+          <span class="alphabet">B</span>
+          <span class="alphabet">C</span>
+          <span class="alphabet">D</span>
+          <span class="alphabet">E</span>
+        </div>
+        <div class="board">
+            <span class="square" data="00"></span>
+            <span class="square" data="01"></span>
+            <span class="square" data="02"></span>
+            <span class="square" data="03"></span>
+            <span class="square" data="04"></span>
+            <span class="square" data="10"></span>
+            <span class="square" data="11"></span>
+            <span class="square" data="12"></span>
+            <span class="square" data="13"></span>
+            <span class="square" data="14"></span>
+            <span class="square" data="20"></span>
+            <span class="square" data="21"></span>
+            <span class="square" data="22"></span>
+            <span class="square" data="23"></span>
+            <span class="square" data="24"></span>
+            <span class="square" data="30"></span>
+            <span class="square" data="31"></span>
+            <span class="square" data="32"></span>
+            <span class="square" data="33"></span>
+            <span class="square" data="34"></span>
+            <span class="square" data="40"></span>
+            <span class="square" data="41"></span>
+            <span class="square" data="42"></span>
+            <span class="square" data="43"></span>
+            <span class="square" data="44"></span>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+    <script>
+      var game = Battleship.getInstance(),
+      reset = document.getElementById('reset'),
+      fire = document.getElementById('fire');
+
+      game.getGameBoard();
+
+      reset.addEventListener('click',event => {
+        event.preventDefault();
+        game.resetGameBoard();
+      });
+      fire.addEventListener('click',event => {
+        event.preventDefault();
+        game.startFire();
+      });
+    </script>
+
+  </body>
+</html>
